@@ -72,7 +72,7 @@ const config = {
           href="https://github.com/sadanandpai/javascript-code-challenges/blob/main/LICENSE"
           target="_blank"
         >
-          MIT License - Copyright (c) 2020
+          MIT License - Copyright (c) 2024
         </a>
       </span>
     ),

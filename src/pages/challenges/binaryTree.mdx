@@ -1,0 +1,237 @@
+### Depth First Values
+
+Write a function, depthFirstValues, that takes in the root of a binary tree.  
+The function should return an array containing all values of the tree in depth-first order.
+
+Test file `src/practice/binaryTree-depth-first-values.test.ts`
+
+#### Recursive solution
+```js-copy 
+const depthFirstValues = (root: Node | null): string[] => {
+    const result: string[] = [];
+  
+    const traverse = (node: Node | null) => {
+      if (node) {
+        result.push(node.val);
+        traverse(node.left);
+        traverse(node.right);
+      }
+    };
+  
+    traverse(root);
+  
+    return result;
+  };
+
+```
+
+#### Iterative solution
+
+```js-copy
+const depthFirstValues = (root: Node | null): string[] => {
+   if(root === null) return [];
+
+   const result = [];
+   const stack = [root];
+
+   while(stack.length > 0){
+    const current = stack.pop();
+    result.push(current.val);
+
+    if(current?.right) stack.push(current.right);
+    if(current?.left) stack.push(current.left);
+
+   }
+  
+    return result;
+};
+```   
+
+---
+
+### Breadth First values
+
+Write a function, breadthFirstValues, that takes in the root of a binary tree. 
+The function should return an array containing all values of the tree in breadth-first order.
+
+Test file `src/practice/binaryTree-breadth-first-values.test.ts`
+
+#### Iterative solution
+
+```js-copy
+export const breadthFirstValues = (root: Node | null): string[] => {
+    if(root === null) return [];
+
+    const values = [];
+    const queue = [root];
+
+    while(queue.length > 0) {
+        const current = queue.shift();
+
+        if(current) values.push(current.val);
+        if(current?.left) queue.push(current.left);
+        if(current?.right) queue.push(current.right);
+    }
+
+    return values;
+
+}
+```   
+
+---
+
+### Tree includes
+
+Write a function, treeIncludes, that takes in the root of a binary tree and a target value. 
+The function should return a boolean indicating whether or not the value is contained in the tree.
+
+Test file `src/practice/binaryTree-tree-included.test.ts`
+
+
+#### Recursive solution
+
+```js-copy
+ export const treeIncludes = (root: Node | null, target: string): boolean => {
+    if(root === null) return false;
+    if(root.val === target) return true;
+
+    return treeIncludes(root.left, target) || treeIncludes(root.right, target);
+ }
+```  
+
+#### Iterative solution
+
+```js-copy
+export const treeIncludes = (root: Node | null, target: string): boolean => {
+    const queue = [root];
+
+    while(queue.length > 0) {
+        const current = queue.shift();
+        
+        if(current?.val === target) return true;
+        if(current?.left) queue.push(current.left);
+        if(current?.right) queue.push(current.right);
+        
+
+    }
+
+    return false;
+}
+```   
+
+---
+
+### Tree sum
+
+Write a function, treeIncludes, that takes in the root of a binary tree and a target value. 
+The function should return a boolean indicating whether or not the value is contained in the tree.
+
+Test file `src/practice/binaryTree-tree-sum.test.ts`
+
+
+#### Recursive solution
+
+```js-copy
+export const treeSum = (root: Node | null): number => {
+    if(root === null) return 0;
+
+    return Number(root.val) + treeSum(root.left) + treeSum(root.right);
+}
+```  
+
+#### Iterative solution
+
+```js-copy
+export const treeIncludes = (root: Node | null, target: string): boolean => {
+    const queue = [root];
+
+    while(queue.length > 0) {
+        const current = queue.shift();
+        
+        if(current?.val === target) return true;
+        if(current?.left) queue.push(current.left);
+        if(current?.right) queue.push(current.right);
+        
+
+    }
+
+    return false;
+}
+```   
+
+---
+
+### Tree min value
+
+Write a function, treeMinValue, that takes in the root of a binary tree that contains number values. 
+The function should return the minimum value within the tree.
+You may assume that the input tree is non-empty.
+
+Test file `src/practice/binaryTree-tree-min-value.test.ts`
+
+
+#### Recursive solution
+
+```js-copy
+export const treeMinValue = (root: NodeNumber): number => {
+    if(root === null) return Infinity;
+
+    const leftMin = treeMinValue(root.left!);
+    const rightMin = treeMinValue(root.right!);
+
+    return Math.min(root.val, leftMin, rightMin);
+};
+```  
+
+#### Iterative solution
+
+```js-copy
+export const treeMinValue = (root: NodeNumber): number => {
+   let smallest = Infinity;
+
+   const stack = [root];
+
+    while (stack.length) {
+        const current = stack.pop()!;
+    
+       if(current?.val < smallest) smallest = current.val;
+
+       if(current.left !== null) stack.push(current.left);
+       if(current.right !== null) stack.push(current.right);    
+    }
+
+    return smallest;
+};
+```   
+
+---
+
+### max root to leaf path sum
+
+Write a function, maxPathSum, that takes in the root of a binary tree that contains number values. 
+The function should return the maximum sum of any root to leaf path within the tree.
+
+You may assume that the input tree is non-empty.
+
+Test file `src/practice/binaryTree-max-root-to-leaf-path-sum.test.ts`
+
+
+#### Recursive solution
+
+```js-copy
+export const maxPathSum = (root: NodeNumber): number => {
+    if(root === null) return -Infinity;
+    if(root.left === null && root.right === null) return root.val;
+
+    const maxChildPathSum = Math.max(maxPathSum(root.left!), maxPathSum(root.right!));
+
+    return root.val + maxChildPathSum;
+
+};
+```  
+
+#### Iterative solution
+
+```js-copy
+
+```   

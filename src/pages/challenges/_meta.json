@@ -4,5 +4,6 @@
   "objects": "Objects",
   "collections": "Collections",
   "async": "Asynchronous",
+  "binaryTree": "Binary Tree",
   "dom": "DOM"
 }
