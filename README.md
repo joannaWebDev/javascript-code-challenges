@@ -1,6 +1,6 @@
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm install
@@ -26,12 +26,15 @@ The project is built using [Nextra](https://nextra.site/)
 ## Deploy
 tbd
 
+---
 
 ### Inspiration starter project
 [Repo](https://github.com/sadanandpai/javascript-code-challenges/tree/main?tab=readme-ov-file)
 
 <div align="center">
-	<a href="https://jscodechallenges.vercel.app/"><img src="web/public/hero.svg" alt="hero" width="100px"/></a>
+	<a href="https://jscodechallenges.vercel.app/">
+		<img src="./public/hero.svg" alt="hero" width="100px"/>
+	</a>
 	<h1>JavaScript Code Challenges</h1>
 	<h3>Collection of modern interview code challenges on JavaScript suitable for</h3>
 	<h4>Interviewees | Interviewers | Knowledge test | Practice</h4>
@@ -41,6 +44,5 @@ tbd
 		<a name="contributions"><img src="https://img.shields.io/github/contributors/sadanandpai/javascript-code-challenges?logoColor=green&style=for-the-badge"></a>
 		<a name="license"><img src="https://img.shields.io/github/license/sadanandpai/javascript-code-challenges?style=for-the-badge"></a>
 	</p>
-	<h3>All challenges can be found at <a href="https://jscodechallenges.vercel.app/">JavaScript Code Challenges</a></h3>
 </div>
 
